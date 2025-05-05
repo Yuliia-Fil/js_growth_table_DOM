@@ -15,6 +15,11 @@ document.addEventListener('click', (e) => {
     if (rowCount < maxCount) {
       const row = document.querySelector('tr');
       const newRow = row.cloneNode(true);
+      const cells = [...newRow.children];
+
+      cells.forEach((cell) => {
+        cell.textContent = '';
+      });
 
       tableBody.appendChild(newRow);
       rowCount++;
@@ -53,6 +58,8 @@ document.addEventListener('click', (e) => {
       trs.forEach((tr) => {
         const td = tr.lastElementChild;
         const newTd = td.cloneNode(true);
+
+        newTd.textContent = '';
 
         tr.appendChild(newTd);
       });
